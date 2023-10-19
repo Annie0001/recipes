@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Recipe Share</title>
+</head>
+<body>
+    <h1> Add a New Recipe!</h1>
+    <!-- <p class="text-danger">Description must not be blank</p> -->
+    <u><a href="/recipes">back to recipes</a></u>
+    <u><a href="/logout">logout</a></u>
+
+<form action="/recipes/new" method="post">
+    <div lass="mx-auto" style="width:40%;">
+        <div class="form-group col-md-10">
+            <label for="name">Name</label>
+            <input name="name" type="text" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="form-group col-md-10">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+        </div>
+        <div class="form-group col-md-10">
+            <label for="exampleFormControlTextarea1">Instructions</label>
+            <textarea name="instruction" class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+        </div>
+        <div class="col-md-10">
+            <label for="date_cooked">Date Cooked/Made:</label>
+            <input name="date_cooked" type="date" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="col-md-10">
+            <label for="under_thirty_min">Under 30 minutes?</label>
+            <p><input type="radio" name="under_thirthy_min" value="1">Yes</p>
+            <p><input type="radio" name="under_thirthy_min" value="0">No</p>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

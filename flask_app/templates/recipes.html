@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Recipe Share</title>
+</head>
+<body>
+    <h1>Welcome {{session['fname']}}!!!</h1>
+    <!-- <form action="/logout"> -->
+        <!-- <button type="submit" class="btn btn-success" style="margin-top: 10px; background-color: rgb(20,162,184); color: white;">Logout</button> -->
+        <a href="/logout">logout</a>
+        <a href="/recipes/new">+ Create</a>
+    <!-- </form> -->
+    <h5> All posted recipes:</h5>
+    <table class="table table-striped , table table-bordered">
+        <thead>
+            <tr class="table-active">
+                <th scope="col"> Name</th>
+                <th scope="col"> Under</th>
+                <th scope="col"> Posted By</th>
+                <th scope="col"> Actions</th>
+            </tr>
+            {% for recipe in recipes %}
+            <tr>
+            
+                <td >{{recipe.name}}</td>
+                <td>{% if recipe.under_thirthy_min == 1: %}
+                        Yes
+                    {% else: %}
+                        No
+                    {%endif%}
+                </td>
+                <td>{{recipe.creator.first_name}}</td>
+                <td><a href="/recipes/{{recipe.id}}/view">view recipe</a>
+                    {% if recipe.creator.first_name == session['fname'] %}
+                    | <a href="/recipes/edit/{{recipe.id}}">edit</a> | <a href="/recipes/delete/{{recipe.id}}">delete</a>
+                    {%endif%}
+                </td>
+            </tr>
+            {%endfor%}
+        </thead>
+    </table>
+</body>
+</html>

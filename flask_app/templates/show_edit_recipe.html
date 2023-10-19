@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Share</title>
+</head>
+<body>
+    <form action="/recipes/{{recipe.id}}">
+        <div lass="mx-auto" style="width:40%;">
+            <div class="form-group col-md-10">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" value="{{recipe.name}}" id="exampleFormControlInput1">
+            </div>
+            <div class="form-group col-md-10">
+                <label for="exampleFormControlTextarea1">Description</label>
+                <textarea class="form-control" value= "{{recipe.description}}"id="exampleFormControlTextarea1" rows="5">{{recipe.description}}</textarea>
+            </div>
+            <div class="form-group col-md-10">
+                <label for="exampleFormControlTextarea1">Instructions</label>
+                <textarea class="form-control" value = "{{recipe.instructions}}" id="exampleFormControlTextarea1" rows="8">{{recipe.instructions}}</textarea>
+            </div>
+            <div class="col-md-10">
+                <label for="date_cooked">Date Cooked/Made:</label>
+                <input name="date_cooked" value="{{recipe.date_cooked}}" type="date" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="col-md-10">
+                <label for="under_thirty_min">Under 30 minutes?</label>
+                    {% if recipe.under_thirthy_min == 1: %}
+                        <input type="radio" name="under_thirthy" value="{{recipe.under_thirthy_min}}" checked>Yes
+                        <input type="radio" name="under_thirthy" value="{{recipe.under_thirthy_min}}">No
+                    {%else:%}
+                        <input type="radio" name="under_thirthy" value="{{recipe.under_thirthy_min}}">Yes
+                        <input type="radio" name="under_thirthy" value="{{recipe.under_thirthy_min}}" checked>No
+                    {%endif%}
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
